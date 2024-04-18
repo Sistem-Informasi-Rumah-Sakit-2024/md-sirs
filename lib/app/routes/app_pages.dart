@@ -6,6 +6,10 @@ import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
 import '../modules/profile/bindings/profile_binding.dart';
 import '../modules/profile/views/profile_view.dart';
+import '../modules/records/bindings/records_binding.dart';
+import '../modules/records/record_actions/bindings/record_actions_binding.dart';
+import '../modules/records/record_actions/views/record_actions_view.dart';
+import '../modules/records/views/records_view.dart';
 
 part 'app_routes.dart';
 
@@ -30,6 +34,18 @@ class AppPages {
       name: _Paths.LOGIN,
       page: () => LoginView(),
       binding: LoginBinding(),
+    ),
+    GetPage(
+      name: _Paths.RECORDS,
+      page: () => RecordsView(),
+      binding: RecordsBinding(),
+      children: [
+        GetPage(
+          name: _Paths.RECORD_ACTIONS,
+          page: () => const RecordActionsView(),
+          binding: RecordActionsBinding(),
+        ),
+      ],
     ),
   ];
 }
