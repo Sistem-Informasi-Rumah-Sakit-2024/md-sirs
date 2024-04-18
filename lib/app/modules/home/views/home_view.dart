@@ -5,6 +5,7 @@ import 'package:flutter/widgets.dart';
 
 import 'package:get/get.dart';
 import 'package:sirs/app/controllers/auth_controller.dart';
+import 'package:sirs/app/routes/app_pages.dart';
 import 'package:sirs/app/utils/constants.dart';
 
 import '../controllers/home_controller.dart';
@@ -74,56 +75,59 @@ class HomeView extends GetView<HomeController> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Row(
-                      children: [
-                        Container(
-                          padding: const EdgeInsets.all(10),
-                          decoration: const BoxDecoration(
-                            color: kPrimaryDark300,
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(20),
-                              bottomLeft: Radius.circular(20),
-                            ),
-                          ),
-                          width: 140,
-                          height: 115,
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: [
-                              Text(
-                                'Total Record',
-                                style: TextStyle(
-                                    fontSize: 16, color: Colors.white),
+                    InkWell(
+                      onTap: () => Get.toNamed(Routes.RECORDS),
+                      child: Row(
+                        children: [
+                          Container(
+                            padding: const EdgeInsets.all(10),
+                            decoration: const BoxDecoration(
+                              color: kPrimaryDark300,
+                              borderRadius: BorderRadius.only(
+                                topLeft: Radius.circular(20),
+                                bottomLeft: Radius.circular(20),
                               ),
-                              Text(
-                                '25',
-                                style: TextStyle(
-                                    fontSize: 48, color: Colors.white),
+                            ),
+                            width: 140,
+                            height: 115,
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: [
+                                Text(
+                                  'Total Record',
+                                  style: TextStyle(
+                                      fontSize: 16, color: Colors.white),
+                                ),
+                                Text(
+                                  '25',
+                                  style: TextStyle(
+                                      fontSize: 48, color: Colors.white),
+                                ),
+                              ],
+                            ),
+                          ),
+                          Container(
+                            decoration: const BoxDecoration(
+                              color: kPrimaryblue500,
+                              borderRadius: BorderRadius.only(
+                                topRight: Radius.circular(20),
+                                bottomRight: Radius.circular(20),
                               ),
-                            ],
-                          ),
-                        ),
-                        Container(
-                          decoration: const BoxDecoration(
-                            color: kPrimaryblue500,
-                            borderRadius: BorderRadius.only(
-                              topRight: Radius.circular(20),
-                              bottomRight: Radius.circular(20),
+                            ),
+                            height: 115,
+                            width: 30,
+                            child: const Center(
+                              child: Icon(
+                                Icons.keyboard_arrow_right_sharp,
+                                color: Colors.white,
+                                size: 32,
+                                weight: 20,
+                              ),
                             ),
                           ),
-                          height: 115,
-                          width: 30,
-                          child: const Center(
-                            child: Icon(
-                              Icons.keyboard_arrow_right_sharp,
-                              color: Colors.white,
-                              size: 32,
-                              weight: 20,
-                            ),
-                          ),
-                        ),
-                      ],
+                        ],
+                      ),
                     ),
                     //
                     Row(
