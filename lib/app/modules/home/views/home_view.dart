@@ -1,17 +1,11 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
-import 'package:flutter/widgets.dart';
-
 import 'package:get/get.dart';
-import 'package:sirs/app/controllers/auth_controller.dart';
 import 'package:sirs/app/routes/app_pages.dart';
 import 'package:sirs/app/utils/constants.dart';
 
 import '../controllers/home_controller.dart';
 
 class HomeView extends GetView<HomeController> {
-  final authC = Get.find<AuthController>();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,16 +23,16 @@ class HomeView extends GetView<HomeController> {
               color: kPrimaryDark200,
               child: Row(
                 children: [
-                  Icon(Icons.space_dashboard_outlined,
+                  const Icon(Icons.space_dashboard_outlined,
                       size: 36, color: Colors.white),
                   const SizedBox(width: 20),
                   Text(
                     'John Doe',
-                    style: TextStyle(color: Colors.white, fontSize: 24),
+                    style: const TextStyle(color: Colors.white, fontSize: 24),
                   ),
                   const Spacer(),
                   IconButton(
-                    onPressed: () => authC.logout(),
+                    onPressed: () => controller.logout(),
                     icon: const Icon(
                       Icons.exit_to_app_rounded,
                       size: 36,
@@ -99,11 +93,11 @@ class HomeView extends GetView<HomeController> {
                                   style: TextStyle(
                                       fontSize: 16, color: Colors.white),
                                 ),
-                                Text(
-                                  '25',
-                                  style: TextStyle(
-                                      fontSize: 48, color: Colors.white),
-                                ),
+                                Obx(() => Text(
+                                      '${controller.totalRecord.value}',
+                                      style: TextStyle(
+                                          fontSize: 48, color: Colors.white),
+                                    )),
                               ],
                             ),
                           ),
@@ -152,10 +146,12 @@ class HomeView extends GetView<HomeController> {
                                 style: TextStyle(
                                     fontSize: 16, color: Colors.white),
                               ),
-                              Text(
-                                '25',
-                                style: TextStyle(
-                                    fontSize: 48, color: Colors.white),
+                              Obx(
+                                () => Text(
+                                  '${controller.totalPasient.value}',
+                                  style: TextStyle(
+                                      fontSize: 48, color: Colors.white),
+                                ),
                               ),
                             ],
                           ),
@@ -209,10 +205,12 @@ class HomeView extends GetView<HomeController> {
                                 style: TextStyle(
                                     fontSize: 16, color: Colors.white),
                               ),
-                              Text(
-                                '25',
-                                style: TextStyle(
-                                    fontSize: 48, color: Colors.white),
+                              Obx(
+                                () => Text(
+                                  '${controller.totalMale.value}',
+                                  style: TextStyle(
+                                      fontSize: 48, color: Colors.white),
+                                ),
                               ),
                             ],
                           ),
@@ -260,10 +258,12 @@ class HomeView extends GetView<HomeController> {
                                 style: TextStyle(
                                     fontSize: 16, color: Colors.white),
                               ),
-                              Text(
-                                '25',
-                                style: TextStyle(
-                                    fontSize: 48, color: Colors.white),
+                              Obx(
+                                () => Text(
+                                  '${controller.totalFemale.value}',
+                                  style: TextStyle(
+                                      fontSize: 48, color: Colors.white),
+                                ),
                               ),
                             ],
                           ),
